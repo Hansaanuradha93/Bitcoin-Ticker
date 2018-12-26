@@ -54,14 +54,46 @@
 		4713607721D3A08F00058D77 /* Bitcoin Ticker */ = {
 			isa = PBXGroup;
 			children = (
-				4713607821D3A08F00058D77 /* AppDelegate.swift */,
-				4713607A21D3A08F00058D77 /* ViewController.swift */,
-				4713607C21D3A08F00058D77 /* Main.storyboard */,
-				4713607F21D3A09100058D77 /* Assets.xcassets */,
-				4713608121D3A09100058D77 /* LaunchScreen.storyboard */,
-				4713608421D3A09100058D77 /* Info.plist */,
+				4713608A21D3A27D00058D77 /* Model */,
+				4713608B21D3A28B00058D77 /* View */,
+				4713608C21D3A29100058D77 /* Controller */,
+				4713608D21D3A2B900058D77 /* Supporting Files */,
 			);
 			path = "Bitcoin Ticker";
+			sourceTree = "<group>";
+		};
+		4713608A21D3A27D00058D77 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4713608B21D3A28B00058D77 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4713607C21D3A08F00058D77 /* Main.storyboard */,
+				4713608121D3A09100058D77 /* LaunchScreen.storyboard */,
+				4713607F21D3A09100058D77 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4713608C21D3A29100058D77 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4713607A21D3A08F00058D77 /* ViewController.swift */,
+				4713607821D3A08F00058D77 /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4713608D21D3A2B900058D77 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4713608421D3A09100058D77 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
