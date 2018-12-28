@@ -12,14 +12,24 @@ import SwiftyJSON
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    let baseURL = "https://apiv2.bitcoinaverage.com/indices/global/ticker/BTC"
-    let defaultURL = "https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCAUD"
-    let currencyArray = ["AUD", "BRL","CAD","CNY","EUR","GBP","HKD","IDR","ILS","INR","JPY","MXN","NOK","NZD","PLN","RON","RUB","SEK","SGD","USD","ZAR"]
-    var finalURL = ""
-
-
+    //    //MARK: - Properties
+    //    /***************************************************************/
+    
+    let baseURL = "https://apiv2.bitcoinaverage.com/indices/global/ticker/BTC"  // Base URL
+    let defaultURL = "https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCAUD" // default URL contains bitcoin data for Australian Dollar
+    let currencyArray = ["AUD", "BRL","CAD","CNY","EUR","GBP","HKD","IDR","ILS","INR","JPY","MXN","NOK","NZD","PLN","RON","RUB","SEK","SGD","USD","ZAR"] // Currency array that contains Money Units
+    var finalURL = "" // Final URL
+    
+    
+    //    //MARK: - IBOutlets
+    //    /***************************************************************/
+    
     @IBOutlet weak var bitcoinPriceLabel: UILabel!
     @IBOutlet weak var currencyPicker: UIPickerView!
+    
+    
+    //    //MARK: - UIViewController methods
+    //    /***************************************************************/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +42,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         getBitcoinPriceData(url: defaultURL)
         
     }
+    
     
     //    //MARK: - UIPickerView methods
     //    /***************************************************************/
@@ -61,6 +72,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     }
     
+    
     //    //MARK: - Networking
     //    /***************************************************************/
     
@@ -87,19 +99,20 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
     }
     
-    //Mark: -   JSON Parsing
-    /*********************************************************************************************************************************************/
+    
+    //    //MARK: - JSON Parcing
+    //    /***************************************************************/
     
     // updateBitcoinData method - Parse JSON data then update UI
     func updateBitcoinData(json : JSON) {
         
-        // Do an Optional binding to be sure this (json["ask"]) statement has some value (Not a nil value)
+        // Do an Optional binding to be sure this (json["ask"]) statement contains some value (Not a nil value)
         if let bitcoinPriceResult = json["ask"].double { // Capture the bitcoin price data from the json and convert into Double from type JSON
             
             bitcoinPriceLabel.text = "\(bitcoinPriceResult)" // Update UI - bitcoinPriceLabel
             
         } else {
-            bitcoinPriceLabel.text = "Bitcoint Price Unavailable"
+            bitcoinPriceLabel.text = "Bitcoint Price Unavailable" // Invalid JSON data recieved
         }
         
     }
